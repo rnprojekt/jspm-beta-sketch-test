@@ -1,0 +1,22 @@
+
+
+/*
+http://clrs.cc/
+*/
+body {
+  margin: 0;
+  font-family: Avenir Next, Helvetica;
+  overflow: hidden;
+}
+
+.samsara-surface {
+  display: table;
+}
+
+middle {
+  vertical-align: middle;
+  text-align: center;
+  display: table-cell;
+}
+
+input:focus { outline: none; }
