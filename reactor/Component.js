@@ -75,6 +75,12 @@ class Component {
 
   componentDidMount() {}
 
+  mountComponent(component) {
+    this._view
+      .add( { align: component.props.align || [0,0] } )
+      .add( component._view );
+  }
+
 } // class
 
 
