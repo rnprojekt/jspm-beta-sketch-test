@@ -10,7 +10,7 @@ import {GrommetAppMix} from 'reactor/mixins/GrommetAppMix.js';
 
 // Components
 import Component from 'reactor/Component.js';
-import LoginForm from 'reactor/LoginForm/LoginForm.js';
+import GrommetLoginForm from 'reactor/GrommetLoginForm/GrommetLoginForm.js';
 
 // Class
 class Reactor extends mix( Component )
@@ -21,7 +21,7 @@ class Reactor extends mix( Component )
   }
 
   componentWillMount() {
-    let login = new LoginForm();
+    let login = new GrommetLoginForm();
     this.mountComponent( login );
 
   }

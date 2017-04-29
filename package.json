@@ -18,6 +18,7 @@
     "name": "jspm-beta-sketch-test",
     "main": "jspm-beta-sketch-test.js",
     "dependencies": {
+      "fastclick": "github:ftlabs/fastclick@^1.0.6",
       "grommet": "npm:grommet@^1.3.4",
       "grommet-addons": "npm:grommet-addons@^0.3.0",
       "mixwith": "github:rnprojekt/mixwith.js@master",
@@ -26,6 +27,8 @@
       "react-router": "npm:react-router@^4.1.1",
       "redux-thunk": "npm:redux-thunk@^2.2.0",
       "samsara": "github:rnprojekt/samsara@master",
+      "semantic-ui": "npm:semantic-ui@^2.2.10",
+      "semantic-ui-css": "npm:semantic-ui-css@^2.2.10",
       "underscore": "npm:underscore@^1.8.3"
     },
     "devDependencies": {
@@ -38,29 +41,79 @@
     },
     "peerDependencies": {
       "assert": "npm:jspm-nodelibs-assert@^0.2.0",
+      "bcrypt-pbkdf": "npm:bcrypt-pbkdf@^1.0.0",
+      "better-console": "npm:better-console",
       "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
       "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
       "constants": "npm:jspm-nodelibs-constants@^0.2.0",
       "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
+      "del": "npm:del",
+      "dgram": "npm:jspm-nodelibs-dgram@^0.2.0",
+      "dns": "npm:jspm-nodelibs-dns@^0.2.0",
       "domain": "npm:jspm-nodelibs-domain@^0.2.0",
+      "ecc-jsbn": "npm:ecc-jsbn@~0.1.1",
+      "errno": "npm:errno@^0.1.1",
       "events": "npm:jspm-nodelibs-events@^0.2.0",
+      "extend": "npm:extend",
       "fs": "npm:jspm-nodelibs-fs@^0.2.0",
+      "fsevents": "npm:fsevents@^1.0.0",
+      "graceful-fs": "npm:graceful-fs@^4.1.2",
+      "gulp": "npm:gulp",
+      "gulp-autoprefixer": "npm:gulp-autoprefixer",
+      "gulp-chmod": "npm:gulp-chmod",
+      "gulp-clean-css": "npm:gulp-clean-css",
+      "gulp-clone": "npm:gulp-clone",
+      "gulp-concat": "npm:gulp-concat",
+      "gulp-concat-css": "npm:gulp-concat-css",
+      "gulp-copy": "npm:gulp-copy",
+      "gulp-dedupe": "npm:gulp-dedupe",
+      "gulp-flatten": "npm:gulp-flatten",
+      "gulp-header": "npm:gulp-header",
+      "gulp-help": "npm:gulp-help",
+      "gulp-if": "npm:gulp-if",
+      "gulp-less": "npm:gulp-less",
+      "gulp-notify": "npm:gulp-notify",
+      "gulp-plumber": "npm:gulp-plumber",
+      "gulp-print": "npm:gulp-print",
+      "gulp-rename": "npm:gulp-rename",
+      "gulp-replace": "npm:gulp-replace",
+      "gulp-rtlcss": "npm:gulp-rtlcss",
+      "gulp-uglify": "npm:gulp-uglify",
+      "gulp-util": "npm:gulp-util",
+      "gulp-watch": "npm:gulp-watch",
       "http": "npm:jspm-nodelibs-http@^0.2.0",
       "https": "npm:jspm-nodelibs-https@^0.2.0",
+      "image-size": "npm:image-size@0.5",
+      "jodid25519": "npm:jodid25519@^1.0.0",
+      "jsbn": "npm:jsbn@0.1",
+      "map-stream": "npm:map-stream",
+      "mime": "npm:mime@^1.2.11",
+      "mkdirp": "npm:mkdirp@^0.5.0",
       "module": "npm:jspm-nodelibs-module@^0.2.0",
       "net": "npm:jspm-nodelibs-net@^0.2.0",
       "os": "npm:jspm-nodelibs-os@^0.2.0",
       "path": "npm:jspm-nodelibs-path@^0.2.0",
       "process": "npm:jspm-nodelibs-process@^0.2.0",
+      "promise": "npm:promise@^7.1.1",
       "querystring": "npm:jspm-nodelibs-querystring@^0.2.0",
       "react": "npm:react@^15.5.4",
+      "readline": "npm:jspm-nodelibs-readline@^0.2.0",
       "redux": "npm:redux@^3.6.0",
+      "request": "npm:request@^2.72.0",
+      "require-dot-file": "npm:require-dot-file",
+      "run-sequence": "npm:run-sequence",
+      "source-map": "npm:source-map@^0.5.3",
       "stream": "npm:jspm-nodelibs-stream@^0.2.0",
       "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
       "timers": "npm:jspm-nodelibs-timers@^0.2.0",
+      "tls": "npm:jspm-nodelibs-tls@^0.2.0",
+      "tty": "npm:jspm-nodelibs-tty@^0.2.0",
+      "tweetnacl": "npm:tweetnacl@0.14",
+      "uglify-to-browserify": "npm:uglify-to-browserify@1.0",
       "url": "npm:jspm-nodelibs-url@^0.2.0",
       "util": "npm:jspm-nodelibs-util@^0.2.0",
       "vm": "npm:jspm-nodelibs-vm@^0.2.0",
+      "yamljs": "npm:yamljs",
       "zlib": "npm:jspm-nodelibs-zlib@^0.2.0"
     },
     "overrides": {
@@ -90,10 +143,30 @@
           "util": "@node/util"
         }
       },
+      "npm:debug@2.6.6": {
+        "main": "src/browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./src/browser.js": {
+            "node": "./src/node.js"
+          },
+          "./node.js": {
+            "browser": "./src/browser.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
       "npm:inherits@2.0.3": {
         "ignore": [
           "test.js"
         ]
+      },
+      "npm:jquery@3.2.1": {
+        "format": "amd"
       },
       "npm:lodash@4.17.4": {
         "map": {

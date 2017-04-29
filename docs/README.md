@@ -50,8 +50,17 @@ npm install http-server --save-dev
 
 TODO: https://github.com/airbnb/react-sketchapp
 
-## samsara
+## Samsara
 
+```bash
 ./jspm install samsara=github:rnprojekt/samsara@master
 ./jspm install npm:colors.css --dev
 ./jspm install underscore
+./jspm install fastclick=github:ftlabs/fastclick
+```
+
+## Semantic UI
+```bash
+./jspm install npm:semantic-ui-css
+./jspm install npm:semantic-ui
+```

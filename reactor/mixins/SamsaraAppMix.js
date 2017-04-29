@@ -1,3 +1,6 @@
+/*
+http://samsarajs.org/
+*/
 
 // Style
 import 'colors.css/css/colors.css!';
@@ -5,6 +8,8 @@ import 'samsara/dist/samsara.css!';
 import 'style/samsara.css!';
 
 // Imports
+import FastClick from 'fastclick';
+
 import _ from 'underscore';
 const extend = _.extend;
 const clone = _.clone;
@@ -42,7 +47,7 @@ export let SamsaraAppMix = (superclass) => class extends superclass {
       // did mount
     });
     this._context.mount(container);
-    // FastClick.attach(document.body);
+    FastClick.attach(document.body);
   } // initContext
 
 };

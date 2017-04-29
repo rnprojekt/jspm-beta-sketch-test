@@ -6,13 +6,13 @@ import _ from 'underscore';
 const extend = _.extend;
 const clone = _.clone;
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-
+// Mixins
 import {mix} from 'mixwith';
-import GrommetLoginForm from './component.js';
-import Component from 'reactor/Component.js';
 import {OpacityMix} from 'reactor/mixins/OpacityMix.js';
+
+// Components
+import LoginForm from './component.js';
+import Component from 'reactor/Component.js';
 
 const defaultProps = {
   size: [true,true],
@@ -22,13 +22,17 @@ const defaultProps = {
   title: 'Login Form'
 };
 
-class LoginForm extends mix(Component).with( OpacityMix ) {
-  constructor(props = {}) {
-    super( extend( clone( LoginForm.defaultProps ), props ) );
-    this.props.onSubmit = this.onSubmit;
-  }
+const renderProps = {
+  timeout: 250,
+  duration: 250
+};
 
-  componentWillMount() {
+export default class GrommetLoginForm extends mix (Component )
+  .with( OpacityMix ) {
+
+  constructor(props = {}) {
+    super( extend( clone( defaultProps ), props ) );
+    this.props.onSubmit = this.onSubmit;
   }
 
   componentDidMount() {
@@ -36,7 +40,7 @@ class LoginForm extends mix(Component).with( OpacityMix ) {
   }
 
   render() {
-    this.renderReactElement(GrommetLoginForm, {timeout: 250, duration: 250}, () => {
+    this.renderReactElement( LoginForm, renderProps, () => {
       console.log('show finished');
     });
   }
@@ -46,7 +50,3 @@ class LoginForm extends mix(Component).with( OpacityMix ) {
   }
 
 } // class
-
-// Export
-LoginForm.defaultProps = defaultProps;
-export default LoginForm;
