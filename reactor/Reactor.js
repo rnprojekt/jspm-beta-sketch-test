@@ -16,11 +16,11 @@ import {SamsaraAppMix} from 'reactor/mixins/SamsaraAppMix.js';
 import Component from 'reactor/Component.js';
 
 // Applications
-import {GrommetAppMix} from 'reactor/mixins/GrommetAppMix.js';
-import GrommetLoginForm from 'reactor/grommet/GrommetLoginForm/GrommetLoginForm.js';
+// import {GrommetAppMix} from 'reactor/mixins/GrommetAppMix.js';
+// import GrommetLoginForm from 'reactor/grommet/GrommetLoginForm/GrommetLoginForm.js';
 
-// import {SemanticAppMix} from 'reactor/mixins/SemanticAppMix.js';
-// import SemanticLoginForm from 'reactor/semantic/SemanticLoginForm/SemanticLoginForm.js';
+import {SemanticAppMix} from 'reactor/mixins/SemanticAppMix.js';
+import SemanticLoginForm from 'reactor/semantic/SemanticLoginForm/SemanticLoginForm.js';
 
 // import {OnsenAppMix} from 'reactor/mixins/OnsenAppMix.js';
 // import OnsenLoginForm from 'reactor/onsen/OnsenLoginForm/OnsenLoginForm.js';
@@ -30,15 +30,15 @@ import GrommetLoginForm from 'reactor/grommet/GrommetLoginForm/GrommetLoginForm.
 
 // Class
 
-class Reactor extends mix( Component )
-  .with( SamsaraAppMix,
-         GrommetAppMix ) {
-
 /*
 class Reactor extends mix( Component )
   .with( SamsaraAppMix,
-         SemanticAppMix ) {
+         GrommetAppMix ) {
 */
+
+class Reactor extends mix( Component )
+  .with( SamsaraAppMix,
+         SemanticAppMix ) {
 
 /*
 class Reactor extends mix( Component )
@@ -57,7 +57,7 @@ class Reactor extends mix( Component )
   }
 
   componentWillMount() {
-    let login = new GrommetLoginForm();
+    let login = new SemanticLoginForm();
     this.mountComponent( login );
 
 /*

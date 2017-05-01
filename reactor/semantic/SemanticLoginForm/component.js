@@ -2,63 +2,88 @@
 // import './component.css!';
 
 // import LoginForm from 'grommet/components/LoginForm';
-// import Anchor from 'grommet/components/Anchor';
+// import Anchor from 'grommet/components/Anchor';.colorful {
 
 import {Dropdown} from 'semantic-ui-react'; // '/dist/es/modules/Dropdown';
-import { Button, Form, Input, Message } from 'semantic-ui-react';
+import { Button, Form, Input, Message, Header, Image } from 'semantic-ui-react';
 
 import React from 'react';
 
 export default class extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isLoading : false, form : {} };
+    this.state = { loading : false,
+                   form : {},
+                   success: false,
+                   error: false };
   }
 
   render() {
-    // let element = (
-    //   <div style={{backgroundColor: 'blue'}}>
-    //   hello
-    //   </div>
-    // );
-
-    const isLoading = this.state.isLoading;
-
     let element = (
-      <Form success loading={isLoading}
-                    onSubmit={ (event,vars) => this.onSubmit(event,vars) }>
-        <Form.Input label='Email'
+      <Form loading={this.state.loading}
+            error={this.state.error}
+            onSubmit={ (proxy,event) => this.onSubmit(proxy,event) }
+            style={{padding: '32px'}}>
+        <Image centered src='images/logo.png' size='tiny' />
+        <Header as='h1' textAlign='center'>
+          {this.props.title}
+        </Header>
+        <Form.Input label='Username'
                     name='email'
                     placeholder='joe@schmoe.com'
-                    onChange={ (event,vars) => this.onChange(event,vars) } />
+                    onChange={ (proxy,event) => this.onChange(event) } />
         <Form.Input label='Password'
                     name='password'
                     placeholder='password'
-                    onChange={ (event,vars) => this.onChange(event,vars) } />
-        <Form.Input label='Password2'
-                    name='password2'
-                    placeholder='password2'
-                    onChange={ (event,vars) => this.onChange(event,vars) } />
+                    type='password'
+                    onChange={ (proxy,event) => this.onChange(event) } />
+        <Message
+          error
+          header='Login Failed'
+          content='Invalid username or password.'
+        />
+        <Button fluid positive>Sign in</Button>
+        <div style={{padding: '16px', paddingTop: '32px', textAlign: 'center'}}>
+        Don't have account ? <a onClick={(event,vars) => console.log(event,vars) }>Sign Up</a>
+        </div>
+      </Form>
+    );
+
+    if(this.state.success) {
+      element = (
+        <Form success={this.state.success}
+              style={{padding: '32px'}}>
         <Message
           success
-          header='Form Completed'
+          header='Login Success'
           content="You're all signed up for the newsletter"
         />
-        <Button>Submit</Button>
-      </Form>
-    )
+        </Form>
+      );
+    }
+
     return element;
   }
 
-  onSubmit(event,vars) {
-    event.preventDefault()
-    // console.log('component.onSubmit', event, vars);
+  onSubmit(proxy,event) {
+    // event.preventDefault();
+    proxy.preventDefault();
     console.debug('component.onSubmit', this.state.form);
+    this.setState({loading: true});
+    this.props.onSubmit(this.state.form, (err,res) => {
+      if(err) {
+        console.error('onSubmit finished error');
+        this.setState({error: true, loading: false})
+      } else {
+        console.info('onSubmit finished');
+        this.setState({loading: false, success : true});
+      }
+    });
   }
 
-  onChange(event,vars) {
-    this.state.form[vars.name] = vars.value;
-    console.log('component.onChange', this.state.form);
+  onChange(event) {
+    this.state.form[event.name] = event.value;
+    // console.log('component.onChange', this.state.form);
   }
 
 }

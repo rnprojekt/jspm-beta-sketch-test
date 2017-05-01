@@ -26,7 +26,7 @@ const Context = Samsara.DOM.Context;
 // Defaults
 const defaultProps = {
   size: [undefined, undefined],
-  classes: ['bg-yellow', 'navy'],
+  classes: ['bg-blue', 'navy'],
   content: "<middle>Samsara App</middle>"
 };
 

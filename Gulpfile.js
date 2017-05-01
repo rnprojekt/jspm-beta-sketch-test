@@ -10,6 +10,7 @@ global.path = {
   index: './index.html',
   main: './src/main.js',
   sw: './sw.js',
+  images: './images/**/*.png',
   vendor: {
     css: []
   }
@@ -22,7 +23,7 @@ require( 'require-dir' )( './gulp_modules' );
 gulp.task( 'init', [ ] );
 
 // Bundle
-gulp.task( 'build', [ 'build-index', 'build-sw', 'build-jspm' ] );
+gulp.task( 'build', [ 'build-index', 'build-sw', 'build-images' ] );
 
 // Default
 gulp.task( 'default', [ 'init' ] );

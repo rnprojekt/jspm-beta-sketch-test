@@ -36,6 +36,7 @@ class Component {
       classes: this.props.classes,
       content: this.props.content || "",
       origin: this.props.origin || [0,0],
+      properties: this.props.properties || {},
       opacity: this.props.opacity ? this.props.opacity : 1
     });
 

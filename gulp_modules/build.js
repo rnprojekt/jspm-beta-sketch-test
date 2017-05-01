@@ -36,21 +36,28 @@ gulp.task( 'build-sw', function() {
     .pipe(size());
 });
 
-gulp.task('build-jspm', function(callback) {
-  runSequence('build-jspm-1', 'build-jspm-2', callback);
+gulp.task( 'build-images', function() {
+  return gulp
+    .src( global.path.images )
+    .pipe(gulp.dest(global.path.build + '/images'))
+    .pipe(size());
 });
 
-gulp.task( 'build-jspm-1', function(done) {
+// gulp.task('build-jspm', function(callback) {
+//   runSequence('build-jspm-1', callback);
+// });
+
+gulp.task( 'build-jspm', function(done) {
   return gulp
     .src( global.path.main )
     .pipe( run( './node_modules/.bin/jspm build <%= file.path %> dist/bundle.js --minify' ));
 });
 
-gulp.task( 'build-jspm-2', function(done) {
-  return gulp
-    .src('dist/bundle.js')
-    .pipe(size());
-});
+// gulp.task( 'build-jspm-2', function(done) {
+//   return gulp
+//     .src('dist/bundle.js')
+//     .pipe(size());
+// });
 
 /*
 // main.js

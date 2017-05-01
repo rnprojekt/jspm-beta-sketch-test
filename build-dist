@@ -7,7 +7,7 @@ fi
 echo ""
 echo "http://jspm.io/0.17-beta-guide/static-builds-with-rollup-optimization.html"
 echo ""
-echo "TODO: gulp index create"
-echo ""
 
 ./jspm build src/main.js dist/bundle.js --minify
+
+./run-gulp build

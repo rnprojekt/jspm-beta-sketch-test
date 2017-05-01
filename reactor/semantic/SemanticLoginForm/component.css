@@ -1,0 +1,16 @@
+.colorful {
+  background:
+    -webkit-linear-gradient(45deg, hsla(198, 93%, 49%, 1) 0%, hsla(198, 93%, 49%, 0) 70%),
+    -webkit-linear-gradient(315deg, hsla(172, 98%, 47%, 1) 10%, hsla(172, 98%, 47%, 0) 80%),
+    -webkit-linear-gradient(225deg, hsla(318, 95%, 44%, 1) 10%, hsla(318, 95%, 44%, 0) 80%),
+    -webkit-linear-gradient(135deg, hsla(252, 94%, 41%, 1) 100%, hsla(252, 94%, 41%, 0) 70%);
+  background:
+    linear-gradient(45deg, hsla(198, 93%, 49%, 1) 0%, hsla(198, 93%, 49%, 0) 70%),
+    linear-gradient(135deg, hsla(172, 98%, 47%, 1) 10%, hsla(172, 98%, 47%, 0) 80%),
+    linear-gradient(225deg, hsla(318, 95%, 44%, 1) 10%, hsla(318, 95%, 44%, 0) 80%),
+    linear-gradient(315deg, hsla(252, 94%, 41%, 1) 100%, hsla(252, 94%, 41%, 0) 70%);
+  }
+
+.ui.form input {
+  background-color: transparent !important;
+}
