@@ -15,19 +15,26 @@ import LoginForm from './component.js';
 import Component from 'reactor/Component.js';
 
 const defaultProps = {
-  size: [true,true],
-  classes: ['bg-white', 'navy'],
+  size: [300,true],
+  properties: {
+    backgroundColor: 'transparent'
+  },
   align:[0.5,0.5],
   origin: [0.5,0.5],
   title: 'Login Form'
 };
 
+// const renderProps = {
+//   timeout: 250,
+//   duration: 250
+// };
+
 const renderProps = {
-  timeout: 250,
-  duration: 250
+  timeout: 0,
+  duration: 0
 };
 
-export default class GrommetLoginForm extends mix (Component )
+export default class DesktopLoginForm extends mix (Component )
   .with( OpacityMix ) {
 
   constructor(props = {}) {

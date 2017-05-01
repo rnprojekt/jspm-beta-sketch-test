@@ -52,6 +52,7 @@ npm install run-sequence --save-dev
 [https://grommet.github.io/docs/get-started](https://grommet.github.io/docs/get-started)
 ```bash
 ./jspm install npm:grommet npm:grommet-addons
+./jspm install npm:react-progress-button
 ```
 
 TODO: https://github.com/airbnb/react-sketchapp
@@ -63,6 +64,7 @@ TODO: https://github.com/airbnb/react-sketchapp
 ./jspm install npm:colors.css --dev
 ./jspm install underscore
 ./jspm install fastclick=github:ftlabs/fastclick
+./jspm install device.js=github:matthewhudson/device.js
 ```
 
 ## Semantic UI
@@ -82,3 +84,11 @@ https://electron.atom.io/docs/tutorial/quick-start/
 ```bash
 npm install electron
 ```
+
+## React Desktop
+```bash
+ ./jspm install npm:react-desktop
+```
+
+## Monaca
+[https://onsen.io/v2/docs/guide/react/#starting-project](https://onsen.io/v2/docs/guide/react/#starting-project)

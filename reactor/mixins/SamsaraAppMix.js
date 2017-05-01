@@ -52,7 +52,7 @@ export let SamsaraAppMix = (superclass) => class extends superclass {
       // did mount
     });
     this._context.mount(container);
-    FastClick.attach(document.body);
+    // FastClick.attach(document.body);
   } // initContext
 
 };

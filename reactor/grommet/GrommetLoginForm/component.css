@@ -1,0 +1,19 @@
+.grommetux-form-field {
+  width: initial !important;
+}
+
+.grommetux-check-box__control-check {
+  position: initial;
+}
+
+.grommetux-check-box__control-check {
+  position: initial;
+}
+
+.mobile .grommetux-form:not(.grommetux-form--plain) {
+  width: initial;
+}
+
+.mobile .grommetux-form-field__contents>input {
+  width: initial !important;
+}

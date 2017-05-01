@@ -1,3 +1,8 @@
 #!/bin/bash
 
-ngrok http 8087
+sub=${1}
+if ! test -z ${sub}; then
+  ngrok http -subdomain=${sub} 8087
+else
+  ngrok http 8087
+fi
