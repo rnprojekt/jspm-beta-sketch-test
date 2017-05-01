@@ -1,17 +1,33 @@
 <!doctype html>
 <meta charset="utf-8">
-<script src="jspm_packages/system.js"></script>
-<script src="jspm.config.js"></script>
-<body>
+<head>
+  <!-- Service Worker -->
   <!--
-  <div id="container"></div>
   <script>
-    SystemJS.import('main.js');
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('sw.js').then(function(registration) {
+        // Registration was successful
+        console.info('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.error('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
   </script>
   -->
+
+  <!-- build:js -->
+  <!-- SystemJS -->
+  <script src="jspm_packages/system.js"></script>
+  <script src="jspm.config.js"></script>
   <script>
   SystemJS.import('systemjs-hot-reloader').then(function(connect) {
     connect()
     SystemJS.import('src/main.js');
   })
   </script>
+  <!-- endbuild -->
+
+<body>

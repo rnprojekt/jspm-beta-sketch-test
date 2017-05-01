@@ -14,13 +14,13 @@ const View = Samsara.Core.View;
 
 const defaultProps = {
   size: [true,true],
-  classes: ['bg-blue', 'navy']
+  classes: ['navy']
 };
 
 // TODO: mixwith
 class Component {
   constructor( props = {} ) {
-    this.props = extend( clone( Component.defaultProps ), props );
+    this.props = extend( clone( defaultProps ), props );
     this.initView();
   }
 
@@ -47,7 +47,9 @@ class Component {
     // will mount
     this._view.subscribe(this._surface);
     // this._view.add({opacity: this.props.opacity ? this.props.opacity : 1 }).add( this._surface );
-    this._view.add( this._surface );
+    this._view
+      .add( { align: this.props.align || [0,0] } )
+      .add( this._surface );
 
     this.componentWillMount();
   } // initView
@@ -71,6 +73,10 @@ class Component {
   //   this.componentWillMount();
   // }
 
+  hotReload() {
+    render();
+  }
+
   componentWillMount() {}
 
   componentDidMount() {}
@@ -82,8 +88,5 @@ class Component {
   }
 
 } // class
-
-
-Component.defaultProps = defaultProps;
 
 export default Component;

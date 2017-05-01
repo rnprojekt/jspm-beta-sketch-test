@@ -7,7 +7,7 @@ https://react.semantic-ui.com
 import 'semantic-ui/dist/semantic.min.css!';
 
 // Mixin Class
-export let SemanticUIAppMix = (superclass) => class extends superclass {
+export let SemanticAppMix = (superclass) => class extends superclass {
 
   constructor(props = {}) {
     super( props );

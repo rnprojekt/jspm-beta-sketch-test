@@ -15,7 +15,7 @@ import LoginForm from './component.js';
 import Component from 'reactor/Component.js';
 
 const defaultProps = {
-  size: [true,true],
+  size: [undefined,undefined],
   classes: ['bg-white', 'navy'],
   align:[0.5,0.5],
   origin: [0.5,0.5],
@@ -27,7 +27,7 @@ const renderProps = {
   duration: 250
 };
 
-export default class GrommetLoginForm extends mix (Component )
+export default class OnsenLoginForm extends mix (Component )
   .with( OpacityMix ) {
 
   constructor(props = {}) {

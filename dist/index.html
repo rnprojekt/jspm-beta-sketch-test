@@ -1,4 +1,31 @@
 <!doctype html>
 <meta charset="utf-8">
-<body>
+<head>
+  <!-- Service Worker -->
+
+  <script>
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+   for(let registration of registrations) {
+    registration.unregister()
+  } })
+  </script>
+
+  <!--
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('sw.js').then(function(registration) {
+        // Registration was successful
+        console.info('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.error('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+  </script>
+  -->
+
   <script src="bundle.js"></script>
+
+<body>

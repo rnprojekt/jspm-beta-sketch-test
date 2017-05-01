@@ -5,6 +5,8 @@ import Reactor from 'reactor/Reactor.js';
 // http://jspm.io/0.17-beta-guide/hot-reloading.html
 import { module } from '@hot';
 
+let app = null;
+
 // main container
 function main() {
   if(module) {
@@ -16,13 +18,12 @@ function main() {
     window.document.body.appendChild(root);
     let container = document.getElementById('container');
 
-    let app = new Reactor( {
+    app = new Reactor( {
       container: container
     });
     app.render();
   }
 }
-
 
 // wait for body ready
 if(! window.document.body) {

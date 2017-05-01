@@ -37,12 +37,6 @@ SystemJS.config({
           "esutils": "npm:esutils@2.0.2"
         }
       },
-      "npm:babel-runtime@6.23.0": {
-        "map": {
-          "core-js": "npm:core-js@2.4.1",
-          "regenerator-runtime": "npm:regenerator-runtime@0.10.3"
-        }
-      },
       "npm:babel-types@6.24.1": {
         "map": {
           "babel-runtime": "npm:babel-runtime@6.23.0",
@@ -151,6 +145,7 @@ SystemJS.config({
     "mkdirp": "npm:mkdirp@0.5.1",
     "module": "npm:jspm-nodelibs-module@0.2.1",
     "net": "npm:jspm-nodelibs-net@0.2.1",
+    "onsenui": "npm:onsenui@2.2.6",
     "os": "npm:jspm-nodelibs-os@0.2.1",
     "path": "npm:jspm-nodelibs-path@0.2.3",
     "process": "npm:jspm-nodelibs-process@0.2.1",
@@ -158,6 +153,7 @@ SystemJS.config({
     "querystring": "npm:jspm-nodelibs-querystring@0.2.2",
     "react": "npm:react@15.5.4",
     "react-dom": "npm:react-dom@15.5.4",
+    "react-onsenui": "npm:react-onsenui@1.2.0",
     "react-redux": "npm:react-redux@5.0.4",
     "react-router": "npm:react-router@4.1.1",
     "readline": "npm:jspm-nodelibs-readline@0.2.1",
@@ -169,6 +165,7 @@ SystemJS.config({
     "samsara": "github:rnprojekt/samsara@master",
     "semantic-ui": "npm:semantic-ui@2.2.10",
     "semantic-ui-css": "npm:semantic-ui-css@2.2.10",
+    "semantic-ui-react": "npm:semantic-ui-react@0.68.2",
     "source-map": "npm:source-map@0.5.6",
     "stream": "npm:jspm-nodelibs-stream@0.2.1",
     "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.1",
@@ -293,7 +290,7 @@ SystemJS.config({
     },
     "npm:encoding@0.1.12": {
       "map": {
-        "iconv-lite": "npm:iconv-lite@0.4.16"
+        "iconv-lite": "npm:iconv-lite@0.4.17"
       }
     },
     "npm:buffer@5.0.6": {
@@ -2751,6 +2748,21 @@ SystemJS.config({
     "npm:error-ex@1.3.1": {
       "map": {
         "is-arrayish": "npm:is-arrayish@0.2.1"
+      }
+    },
+    "npm:babel-runtime@6.23.0": {
+      "map": {
+        "core-js": "npm:core-js@2.4.1",
+        "regenerator-runtime": "npm:regenerator-runtime@0.10.5"
+      }
+    },
+    "npm:semantic-ui-react@0.68.2": {
+      "map": {
+        "babel-runtime": "npm:babel-runtime@6.23.0",
+        "debug": "npm:debug@2.6.6",
+        "prop-types": "npm:prop-types@15.5.8",
+        "classnames": "npm:classnames@2.2.5",
+        "lodash": "npm:lodash@4.17.4"
       }
     }
   }

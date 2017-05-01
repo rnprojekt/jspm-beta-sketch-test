@@ -11,8 +11,16 @@
   "devDependencies": {
     "chokidar-socket-emitter": "^0.6.0",
     "docpress": "^0.7.1",
+    "git-rev": "^0.2.1",
+    "gulp": "^3.9.1",
+    "gulp-filesize": "0.0.6",
+    "gulp-filter": "^5.0.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-run": "^1.7.1",
     "http-server": "^0.9.0",
-    "jspm": "^0.17.0-beta.41"
+    "jspm": "^0.17.0-beta.41",
+    "require-dir": "^0.3.1",
+    "run-sequence": "^1.2.2"
   },
   "jspm": {
     "name": "jspm-beta-sketch-test",
@@ -22,13 +30,14 @@
       "grommet": "npm:grommet@^1.3.4",
       "grommet-addons": "npm:grommet-addons@^0.3.0",
       "mixwith": "github:rnprojekt/mixwith.js@master",
-      "react-dom": "npm:react-dom@^15.5.4",
+      "react-onsenui": "npm:react-onsenui@^1.2.0",
       "react-redux": "npm:react-redux@^5.0.4",
       "react-router": "npm:react-router@^4.1.1",
       "redux-thunk": "npm:redux-thunk@^2.2.0",
       "samsara": "github:rnprojekt/samsara@master",
       "semantic-ui": "npm:semantic-ui@^2.2.10",
       "semantic-ui-css": "npm:semantic-ui-css@^2.2.10",
+      "semantic-ui-react": "npm:semantic-ui-react@^0.68.2",
       "underscore": "npm:underscore@^1.8.3"
     },
     "devDependencies": {
@@ -91,12 +100,14 @@
       "mkdirp": "npm:mkdirp@^0.5.0",
       "module": "npm:jspm-nodelibs-module@^0.2.0",
       "net": "npm:jspm-nodelibs-net@^0.2.0",
+      "onsenui": "npm:onsenui@^2.2.6",
       "os": "npm:jspm-nodelibs-os@^0.2.0",
       "path": "npm:jspm-nodelibs-path@^0.2.0",
       "process": "npm:jspm-nodelibs-process@^0.2.0",
       "promise": "npm:promise@^7.1.1",
       "querystring": "npm:jspm-nodelibs-querystring@^0.2.0",
       "react": "npm:react@^15.5.4",
+      "react-dom": "npm:react-dom@^15.5.4",
       "readline": "npm:jspm-nodelibs-readline@^0.2.0",
       "redux": "npm:redux@^3.6.0",
       "request": "npm:request@^2.72.0",

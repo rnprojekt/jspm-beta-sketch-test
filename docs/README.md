@@ -24,6 +24,12 @@ npm install http-server --save-dev
 ./jspm install css=github:systemjs/plugin-css --dev
 ```
 
+### Gulp
+```bash
+npm install gulp require-dir gulp-html-replace git-rev gulp-filter gulp-run gulp-filesize --save-dev
+npm install run-sequence --save-dev
+```
+
 ### Redux
 ```bash
 ./jspm install react-redux
@@ -61,6 +67,18 @@ TODO: https://github.com/airbnb/react-sketchapp
 
 ## Semantic UI
 ```bash
-./jspm install npm:semantic-ui-css
+./jspm install npm:semantic-ui-react
 ./jspm install npm:semantic-ui
+```
+
+## OnsenUI
+```bash
+./jspm install npm:onsenui
+./jspm install npm:react-onsenui
+```
+
+## Electron App
+https://electron.atom.io/docs/tutorial/quick-start/
+```bash
+npm install electron
 ```

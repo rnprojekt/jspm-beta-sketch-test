@@ -2,6 +2,11 @@
 http://samsarajs.org/
 */
 
+/* TODO
+  https://github.com/JakeSidSmith/react-fastclick
+
+*/
+
 // Style
 import 'colors.css/css/colors.css!';
 import 'samsara/dist/samsara.css!';
