@@ -11,7 +11,35 @@ import Component from 'reactor/Component.js';
 
 // Applications
 import {SemanticAppMix} from 'reactor/mixins/SemanticAppMix.js';
-import SemanticLoginForm from 'reactor/semantic/SemanticLoginForm/SemanticLoginForm.js';
+import SemanticLoginForm from 'reactor/semantic/LoginForm/LoginForm.js';
+import SemanticHeaderMenu from 'reactor/semantic/HeaderMenu/HeaderMenu.js';
+
+// State
+// https://www.smashingmagazine.com/2016/06/an-introduction-to-redux/
+
+// Reducer
+const auth = function(state = {status: 'logged out', value: 'guest'}, action) {
+  switch (action.type) {
+    case 'LOGIN':
+      // console.log('LOGIN');
+      return Object.assign({}, state, {
+        status: 'logged in',
+        value: action.value
+      })
+    case 'LOGOUT':
+      return Object.assign({}, state, {
+        status: 'logged out',
+        value: action.value
+      })
+    default:
+      return state;
+  }
+}
+
+// Store
+import Redux from 'redux';
+const { createStore } = Redux;
+const store = createStore(auth);
 
 // Class
 export default class extends mix( Component )
@@ -19,11 +47,20 @@ export default class extends mix( Component )
          SemanticAppMix ) {
 
   constructor( props ) {
+    props.store = store;
     super( props );
   }
 
   componentWillMount() {
-    let login = new SemanticLoginForm();
+    let menu = new SemanticHeaderMenu({
+      store: store,
+    });
+    this.mountComponent( menu );
+
+    let login = new SemanticLoginForm({
+      store: store,
+      apiUrl: 'https://localhost:8087/auth'
+    });
     this.mountComponent( login );
   }
 } // class

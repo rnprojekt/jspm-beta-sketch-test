@@ -16,3 +16,5 @@ probably do not need for your own project. However it is easy to sor out what
 you need.
 
 Please proceed to the [documentation](docs/README.md)
+
+TODO: https://opencollective.com/

@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# Press your prefx Ctrl+B and then : and type kill-session, then hit Enter
+
+echo "Press your prefx Ctrl+B and then : and type kill-session, then hit Enter"
+# sudo echo "sudo OK"
+# sudo killall -HUP mDNSResponder
+
+# source "./config"
+
+SESSION=jspm-beta-sketch-test
+
+#
+#  +-----+-----+
+#  |   0 |   3 |
+#  |     |     |
+#  +-----+-----+
+#  |   1 |   4 |
+#  +-----+     +
+#  |   2 |     |
+#  +-----+-----+
+#
+
+tmux -2 new-session -d -s $SESSION
+
+# First window (backend dev)
+tmux rename-window "DEVEL"
+
+# Split to 2x2
+tmux split-window -h
+# tmux split-window -v
+# tmux select-pane -t 0
+# tmux split-window -v
+# tmux split-window -v
+
+# Chokidar
+tmux select-pane -t 0
+tmux send-keys "export PS1=\"CHOKIDAR> \"; ./chokidar" C-m
+
+# APP HTTP
+tmux select-pane -t 1
+tmux send-keys "export PS1=\"APP> \"; ./serv" C-m
+# tmux send-keys "export PS1=\"NGINX> \"; cd $API_PATH; clear; ./start_nginx" C-m
+
+# RETHINKDB
+# tmux select-pane -t 2
+# tmux send-keys "export PS1=\"RETHINK> \"; cd $API_PATH; clear; ./start_rethinkdb" C-m
+
+# API
+# tmux select-pane -t 3
+# tmux send-keys "export PS1=\"NODE> \"; cd $API_PATH; clear; npm run watch" C-m
+
+# DNSMASQ
+# tmux select-pane -t 4
+# tmux send-keys "export PS1=\"DNSMASQ> \";cd $API_PATH; clear; ./start_dnsmasq; htop" C-m
+
+# Select the control window and first pane
+tmux select-window -t "$SESSION"
+tmux select-pane -t 1
+
+# Reattach
+tmux -2 attach-session -t $SESSION
+
+# if test -r "./nginx.pid"; then
+#  sudo kill $(cat "./nginx.pid")
+# fi
+
+# if test -r "./dnsmasq.pid"; then
+#  sudo kill $(cat "./dnsmasq.pid")
+# fi
