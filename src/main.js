@@ -1,5 +1,7 @@
 
-import Reactor from 'reactor/Reactor.js';
+// import Reactor from 'reactor/Reactor.js';
+// import App from 'reactor/GrommetTestApp.js';
+import App from 'reactor/SemanticTestApp.js';
 
 // hot-reload
 // http://jspm.io/0.17-beta-guide/hot-reloading.html
@@ -10,7 +12,7 @@ let app = null;
 // main container
 function main() {
   if(module) {
-    console.log('TODO: samsara + hot-reload',module);
+    console.debug('TODO: samsara + hot-reload',module);
   }
   else {
     let root = document.createElement('div');
@@ -18,7 +20,7 @@ function main() {
     window.document.body.appendChild(root);
     let container = document.getElementById('container');
 
-    app = new Reactor( {
+    app = new App( {
       container: container
     });
     app.render();

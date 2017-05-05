@@ -5,7 +5,7 @@ const clone = _.clone;
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HelloWorld} from 'jspm-beta-sketch-test/component.js';
+// import {HelloWorld} from 'jspm-beta-sketch-test/component.js';
 
 import Samsara from 'samsara';
 const Context = Samsara.DOM.Context;

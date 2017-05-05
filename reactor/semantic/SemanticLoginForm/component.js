@@ -1,15 +1,27 @@
 
+// Style
 // import './component.css!';
 
-// import LoginForm from 'grommet/components/LoginForm';
-// import Anchor from 'grommet/components/Anchor';.colorful {
-
-import {Dropdown} from 'semantic-ui-react'; // '/dist/es/modules/Dropdown';
-import { Button, Form, Input, Message, Header, Image } from 'semantic-ui-react';
-
+// React Components
 import React from 'react';
+import { Dropdown,
+         Button,
+         Form,
+         Input,
+         Message,
+         Header,
+         Image } from 'semantic-ui-react';
 
-export default class extends React.Component {
+// Language
+// import { I18nextProvider } from 'react-i18next';
+import i18n from 'reactor/i18n';
+// import { translate, Interpolate } from 'react-i18next';
+
+console.log(i18n);
+
+// Class
+// @translate(['view', 'nav'], { wait: true })
+class Component extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loading : false,
@@ -19,7 +31,13 @@ export default class extends React.Component {
   }
 
   render() {
+    console.log(this.props);
+    // const { t } = this.props;
+    // <h1>{t('common:appName')}</h1>
+
     let element = (
+      <I18nextProvider i18n={ i18n }>
+
       <Form loading={this.state.loading}
             error={this.state.error}
             onSubmit={ (proxy,event) => this.onSubmit(proxy,event) }
@@ -47,6 +65,7 @@ export default class extends React.Component {
         Don't have account ? <a onClick={(event,vars) => console.log(event,vars) }>Sign Up</a>
         </div>
       </Form>
+      </I18nextProvider>
     );
 
     if(this.state.success) {
@@ -85,5 +104,9 @@ export default class extends React.Component {
     this.state.form[event.name] = event.value;
     // console.log('component.onChange', this.state.form);
   }
+} // class
 
-}
+// console.log( translate(['common'], { withRef: true })(Component) );
+// let Translated = translate(['common'], { wait: false, withRef: true })(Component);
+// export default translate(['common'], { wait: false, withRef: true })(Component);
+export default Component;

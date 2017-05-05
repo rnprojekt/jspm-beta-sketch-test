@@ -14,7 +14,7 @@ import {mix} from 'mixwith';
 import {OpacityMix} from 'reactor/mixins/OpacityMix.js';
 
 // Components
-import LoginForm from './component.js';
+import LoginForm from './Component.js';
 import Component from 'reactor/Component.js';
 
 let size = [undefined,undefined];

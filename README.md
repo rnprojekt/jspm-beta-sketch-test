@@ -9,10 +9,10 @@ State-of-the-Art Javascript development should:
  * Not need complex tooling
  * Support 3rd party libraries with versioning out-of-the-box (JSPM)
  * Be framework and device agnostic
- * Support bundling and may be hot-reloading
+ * Support bundling and hot-reloading
 
 The project is a work in progress and contains lot of dependencies which you
 probably do not need for your own project. However it is easy to sor out what
 you need.
 
-For detailed description please proceed to the [documentation](docs/README.md)
+Please proceed to the [documentation](docs/README.md)

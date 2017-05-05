@@ -116,6 +116,9 @@ SystemJS.config({
     "gulp-watch": "npm:gulp-watch@4.3.11",
     "http": "npm:jspm-nodelibs-http@0.2.0",
     "https": "npm:jspm-nodelibs-https@0.2.2",
+    "i18next": "npm:i18next@8.1.0",
+    "i18next-browser-languagedetector": "npm:i18next-browser-languagedetector@1.0.1",
+    "i18next-xhr-backend": "npm:i18next-xhr-backend@1.4.1",
     "image-size": "npm:image-size@0.5.1",
     "jodid25519": "npm:jodid25519@1.0.2",
     "jsbn": "npm:jsbn@0.1.1",
@@ -135,6 +138,7 @@ SystemJS.config({
     "react": "npm:react@15.5.4",
     "react-desktop": "npm:react-desktop@0.3.0",
     "react-dom": "npm:react-dom@15.5.4",
+    "react-i18next": "npm:react-i18next@3.1.0",
     "react-onsenui": "npm:react-onsenui@1.2.0",
     "react-progress-button": "npm:react-progress-button@5.0.2",
     "react-redux": "npm:react-redux@5.0.4",
@@ -3368,6 +3372,11 @@ SystemJS.config({
         "babel-traverse": "npm:babel-traverse@6.24.1",
         "babel-runtime": "npm:babel-runtime@6.23.0",
         "babel-types": "npm:babel-types@6.24.1"
+      }
+    },
+    "npm:react-i18next@3.1.0": {
+      "map": {
+        "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0"
       }
     }
   }
