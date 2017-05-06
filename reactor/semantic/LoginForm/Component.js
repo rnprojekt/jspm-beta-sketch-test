@@ -12,14 +12,29 @@ import { Dropdown,
          Header,
          Image } from 'semantic-ui-react';
 
+const LOADING = {state: 'loading'};
+const ERROR = {state: 'error'};
+const SUCCESS = {state: 'success'};
+
 // Class
 export default class extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { loading : false,
-                   form : {username: "", password: ""},
-                   success: false,
-                   error: false };
+    this.state = {
+      state: 'init',
+      form: {
+        username: "",
+        password: ""
+      }
+    }
+
+    /*
+    {
+      loading : false,
+      success: false,
+      error: false
+    };
+    */
   }
 
   onChange(event) {
@@ -28,31 +43,40 @@ export default class extends React.Component {
 
   onSubmit(proxy,event) {
     proxy.preventDefault();
-    console.debug('component.onSubmit', this.state.form);
+    // Debug user input
+    // console.debug('component.onSubmit', this.state.form);
 
+    // Sanit user input
     if( this.state.form.username == "" ) {
-      return this.setState({error: true, loading: false});
+      return this.setState( ERROR );
     }
 
-    this.setState({loading: true});
+    // Loading
+    this.setState( LOADING );
 
-    this.props.onSubmit( this.state.form, (err,res) => {
-      if(err) {
-        console.error('onSubmit finished error');
-        this.setState({error: true, loading: false});
-      } else {
-        console.info('onSubmit finished', this.props.store.getState());
-        this.setState({loading: false, success : true});
-      }
-    });
+    // Submit call parent
+    this.props.onSubmit( this.state.form, (err,res) => this.onSubmitDone(err,res) );
   } // onSubmit
+
+  onSubmitDone(err,res) {
+    if(err) {
+      console.error('onSubmit finished error');
+      this.setState( ERROR );
+    } else {
+      console.info('onSubmit finished', this.props.store.getState());
+      this.setState( SUCCESS );
+    }
+  }
 
   render() {
     console.log('props:',this.props);
+    const isLoading = this.state.state == 'loading' ? true : false;
+    const isError = this.state.state == 'error' ? true : false;
+    const isSuccess = this.state.state == 'success' ? true : false;
 
     let element = (
-      <Form loading={this.state.loading}
-            error={this.state.error}
+      <Form loading={isLoading}
+            error={isError}
             onSubmit={ (proxy,event) => this.onSubmit(proxy,event) }
             style={{padding: '32px'}}>
 
@@ -89,9 +113,9 @@ export default class extends React.Component {
       </Form>
     );
 
-    if(this.state.success) {
+    if(isSuccess) {
       element = (
-        <Form success={this.state.success}
+        <Form success={isSuccess}
               style={{padding: '32px'}}>
 
         <Message success
