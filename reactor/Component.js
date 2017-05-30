@@ -40,9 +40,9 @@ class Component {
       opacity: this.props.opacity ? this.props.opacity : 1
     });
 
-    this._view.input.on('deploy', (event) => {
-      // console.log('view deploy',event);
-      this.componentDidMount();
+    this._view.input.on('deploy', (target) => {
+      // console.log('view deploy',target);
+      this.componentDidMount(target);
     });
 
     // will mount

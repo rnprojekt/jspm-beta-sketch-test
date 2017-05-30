@@ -17,6 +17,10 @@ import SemanticHeaderMenu from 'reactor/semantic/HeaderMenu/HeaderMenu.js';
 // State
 // https://www.smashingmagazine.com/2016/06/an-introduction-to-redux/
 
+// https://designmodo.com/free-javascript-plugins/
+// https://github.com/selz/plyr
+// http://market.designmodo.com/pin-ui/
+
 // Reducer
 const auth = function(state = {status: 'logged out', value: 'guest'}, action) {
   switch (action.type) {
@@ -47,6 +51,7 @@ export default class extends mix( Component )
          SemanticAppMix ) {
 
   constructor( props ) {
+    props.classes = ['bg-blue', 'gradient'];
     props.store = store;
     super( props );
   }

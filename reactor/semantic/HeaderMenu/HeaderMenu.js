@@ -20,11 +20,7 @@ import {FormMix} from 'reactor/mixins/FormMix.js';
 import MenuForm from './Component.js';
 import Component from 'reactor/Component.js';
 
-let size = [undefined,undefined];
-
-if(device.desktop()) {
-  size = [undefined,true];
-}
+let size = [undefined,true];
 
 const defaultProps = {
   size: size,
